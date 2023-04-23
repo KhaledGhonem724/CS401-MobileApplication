@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:project_app/screens/AddSession.dart';
 import 'package:project_app/screens/CreateTask.dart';
 import 'package:project_app/screens/DeleteTask.dart';
-import 'package:project_app/screens/Page1.dart';
+import 'package:project_app/screens/HomePage.dart';
 import 'package:project_app/screens/tasks.dart';
 
 void main() {
