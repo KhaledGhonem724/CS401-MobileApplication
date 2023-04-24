@@ -4,6 +4,9 @@ import 'package:project_app/screens/CreateTask.dart';
 import 'package:project_app/screens/DeleteTask.dart';
 import 'package:project_app/screens/HomePage.dart';
 import 'package:project_app/materials/colors.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
+import '../materials/elements/CircularButton.dart';
+import '../materials/elements/TaskCard.dart';
 
 class tasks extends StatefulWidget {
   const tasks({super.key});
@@ -96,53 +99,11 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                               childAspectRatio: 4),
                       itemCount: myProducts.length,
                       itemBuilder: (BuildContext ctx, index) {
-                        return Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: complementary_color_dark,
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      const Padding(
-                                        padding: const EdgeInsets.only(top: 6),
-                                        child: Text("Task"),
-                                      ),
-                                      Text("00:00:00 "),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          IconButton(
-                                            onPressed: () {
-                                              // timer
-                                            },
-                                            icon: Icon(Icons.play_arrow),
-                                          ),
-                                          IconButton(
-                                            onPressed: () {
-                                              // timer
-                                            },
-                                            icon: Icon(Icons.restart_alt),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                        return TaskCard(
+                          color: complementary_color_dark,
+                          reset: () {},
+                          play: () {},
+                          taskName: '',
                         );
                       }),
                 ),
@@ -264,31 +225,6 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CircularButton extends StatelessWidget {
-  final double width;
-  final double height;
-  final Color color;
-  final Icon icon;
-  final void Function() onClick;
-
-  CircularButton(
-      {required this.color,
-      required this.width,
-      required this.height,
-      required this.icon,
-      required this.onClick});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      width: width,
-      height: height,
-      child: IconButton(icon: icon, enableFeedback: true, onPressed: onClick),
     );
   }
 }

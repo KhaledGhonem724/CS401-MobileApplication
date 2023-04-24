@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  stop_watch_timer:
+
   firebase_core: ^2.9.0
   flutter:
     sdk: flutter
