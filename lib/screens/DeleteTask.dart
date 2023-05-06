@@ -13,12 +13,14 @@ class _DeleteTaskState extends State<DeleteTask> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.red,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              Row(),
               Text("DeleteTask"),
             ],
           ),

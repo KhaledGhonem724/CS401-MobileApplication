@@ -13,6 +13,7 @@ class _AddSessionState extends State<AddSession> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.red,
         body: Center(

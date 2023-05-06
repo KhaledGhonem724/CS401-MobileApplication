@@ -8,11 +8,11 @@ import 'package:project_app/screens/HomePage.dart';
 import 'package:project_app/screens/tasks.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  // const MyApp({super.key});
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: page1.id,
       routes: {
         page1.id: (context) => page1(),

@@ -67,6 +67,7 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: background_color_dark,
         appBar: AppBar(

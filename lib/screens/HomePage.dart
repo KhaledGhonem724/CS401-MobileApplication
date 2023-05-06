@@ -12,13 +12,14 @@ class _page1State extends State<page1> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.red,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text("page1"),
+              Text("home page"),
               MaterialButton(
                 onPressed: () {
                   Navigator.pushNamed(context, tasks.id);

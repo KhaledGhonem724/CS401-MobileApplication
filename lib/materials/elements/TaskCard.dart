@@ -30,7 +30,7 @@ class TaskCard extends StatelessWidget {
                 children: [
                   const Padding(
                     padding: const EdgeInsets.only(top: 6),
-                    child: Text("taskname"),
+                    child: Text("taskName"),
                   ),
                   Text("00:00:00 "),
                   Row(
