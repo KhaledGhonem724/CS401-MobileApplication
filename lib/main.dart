@@ -22,9 +22,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: page1.id,
+      initialRoute: HomePage.id,
       routes: {
-        page1.id: (context) => page1(),
+        HomePage.id: (context) => HomePage(),
         tasks.id: (context) => tasks(),
         DeleteTask.id: (context) => DeleteTask(),
         AddSession.id: (context) => AddSession(),
