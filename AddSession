@@ -1,0 +1,99 @@
+import 'package:flutter/material.dart';
+
+
+class AddSection extends StatelessWidget {
+  const AddSection ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 43, 82, 255)),
+      ),
+      home: const AddSession(),
+    );
+  }
+}
+
+class AddSession extends StatefulWidget {
+  const AddSession({super.key});
+  static const String id = "AddSession";
+  @override
+  State<AddSession> createState() => _AddSessionState();
+}
+
+class _AddSessionState extends State<AddSession> {
+  get screenWidth => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text("Add session"),
+        centerTitle: true,
+        leading:
+            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 40),
+            Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        label: const Text("from to"),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )),
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        label: const Text(""),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )),
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            const Text("Task"),
+            DropdownMenu(
+              width: screenWidth * 0.9,
+              dropdownMenuEntries: const [
+                DropdownMenuEntry(value: "Moaz", label: "sxw")
+              ],
+            ),
+            const Spacer(),
+            ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.4, vertical: 15))),
+                child: const Text("add")
+                ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.376, vertical: 15)
+                        )),
+                child: const Text("Cancel")
+                ),
+            const Spacer(),
+          ],
+        ),
+      ), 
+    );
+  }
+}
