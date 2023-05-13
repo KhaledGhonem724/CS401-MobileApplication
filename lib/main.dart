@@ -26,9 +26,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         page1.id: (context) => page1(),
         tasks.id: (context) => tasks(),
-        DeleteTask.id: (context) => DeleteTask(),
+        deletetask.id: (context) => deletetask(),
         AddSession.id: (context) => AddSession(),
-        CreateTask.id: (context) => CreateTask(),
+        createtasks.id: (context) => createtasks(),
       },
     );
   }

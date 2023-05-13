@@ -148,7 +148,7 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                             ),
                             onClick: () {
                               Navigator.pushNamed(context,
-                                  CreateTask.id); // requier another screen
+                                  createtasks.id); // requier another screen
                             },
                           ),
                         ),
@@ -194,7 +194,7 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                             ),
                             onClick: () {
                               Navigator.pushNamed(context,
-                                  DeleteTask.id); // requier another screen
+                                  deletetask.id); // requier another screen
                             },
                           ),
                         ),

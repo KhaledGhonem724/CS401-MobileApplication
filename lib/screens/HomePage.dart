@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_app/screens/tasks.dart';
+import 'package:project_app/materials/colors.dart';
 
 class page1 extends StatefulWidget {
   const page1({super.key});
@@ -14,7 +15,7 @@ class _page1State extends State<page1> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: background_color_dark,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -24,9 +25,23 @@ class _page1State extends State<page1> {
                 onPressed: () {
                   Navigator.pushNamed(context, tasks.id);
                 },
-                color: Colors.amber,
-                child: Text("to tasks"),
-              )
+                color: complementary_color_dark,
+                child: Text("Tasks"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, tasks.id);
+                },
+                color: complementary_color_dark,
+                child: Text("Report"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, tasks.id);
+                },
+                color: complementary_color_dark,
+                child: Text("About Us"),
+              ),
             ],
           ),
         ),
