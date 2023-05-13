@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_app/screens/tasks.dart';
 import 'package:project_app/materials/colors.dart';
+import 'package:project_app/screens/Report.dart';
 
 class page1 extends StatefulWidget {
   const page1({super.key});
@@ -20,7 +21,6 @@ class _page1State extends State<page1> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text("home page"),
               MaterialButton(
                 onPressed: () {
                   Navigator.pushNamed(context, tasks.id);
@@ -30,7 +30,7 @@ class _page1State extends State<page1> {
               ),
               MaterialButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, tasks.id);
+                  Navigator.pushNamed(context, Report.id);
                 },
                 color: complementary_color_dark,
                 child: Text("Report"),
@@ -45,7 +45,11 @@ class _page1State extends State<page1> {
             ],
           ),
         ),
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: primary_color_dark,
+          centerTitle: true,
+          title: const Text('Home page'),
+        ),
       ),
     );
   }

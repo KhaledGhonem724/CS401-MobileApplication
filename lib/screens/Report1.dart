@@ -24,8 +24,8 @@ class _Report1State extends State<Report1> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('From', style: TextStyle(fontSize: 30)),
-              Text('To', style: TextStyle(fontSize: 30)),
+              Text('From', style: TextStyle(fontSize: 30, color: Colors.white)),
+              Text('To', style: TextStyle(fontSize: 30, color: Colors.white)),
             ],
           ),
           SizedBox(
@@ -48,7 +48,10 @@ class _Report1State extends State<Report1> {
                           return Calender();
                         });
                   },
-                  icon: Icon(Icons.calendar_month)),
+                  icon: Icon(
+                    Icons.calendar_month,
+                    color: Colors.white,
+                  )),
               IconButton(
                   onPressed: () {
                     showModalBottomSheet(
@@ -65,7 +68,7 @@ class _Report1State extends State<Report1> {
                     );
                     // ignore: prefer_const_constructors
                   },
-                  icon: Icon(Icons.calendar_month)),
+                  icon: Icon(Icons.calendar_month, color: Colors.white)),
             ],
           ),
           Container(
@@ -88,7 +91,7 @@ class _Report1State extends State<Report1> {
                 },
                 child: Text(
                   'Select Tasks',
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 30, color: Colors.white),
                 )),
           )),
           Container(
@@ -111,7 +114,7 @@ class _Report1State extends State<Report1> {
                 },
                 child: Text(
                   'View Report',
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 30, color: Colors.white),
                 )),
           )),
         ],

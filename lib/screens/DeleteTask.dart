@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:project_app/screens/ContactModel.dart';
+import 'package:project_app/screens/tasks.dart';
 
 class deletetask extends StatefulWidget {
   const deletetask({super.key});
@@ -30,17 +31,15 @@ class _deletetaskState extends State<deletetask> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: primary_color_dark,
           centerTitle: true,
           title: const Text('Delete Task'),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed;
-                  //استدعاء من كلاس اخر نكتب.....
-                  //(context, Welecom.id);
-                },
-                icon: Icon(Icons.logout)),
-          ],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pushNamed(context, tasks.id);
+            },
+          ),
         ),
         body: SafeArea(
           child: Container(

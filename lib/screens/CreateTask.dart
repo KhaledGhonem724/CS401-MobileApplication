@@ -58,15 +58,13 @@ class _createtasksState extends State<createtasks> {
           ),
         ),
         appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed;
-                  //استدعاء من كلاس اخر نكتب.....
-                  //(context, Welecom.id);
-                },
-                icon: Icon(Icons.logout)),
-          ],
+          backgroundColor: primary_color_dark,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pushNamed(context, tasks.id);
+            },
+          ),
         ),
       ),
     );
