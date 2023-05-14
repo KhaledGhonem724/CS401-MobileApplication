@@ -101,11 +101,8 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                       itemCount: myProducts.length,
                       itemBuilder: (BuildContext ctx, index) {
                         return TaskCard(
-                          color: complementary_color_dark,
-                          reset: () {},
-                          play: () {},
-                          taskName: '',
-                        );
+                          taskName: "task name",
+                        ); ///////////////////////////////////////////////////////////////////////////
                       }),
                 ),
               ),
