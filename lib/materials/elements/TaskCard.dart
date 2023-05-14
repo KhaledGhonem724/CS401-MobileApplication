@@ -1,24 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:project_app/materials/colors.dart';
 
-class TaskCard extends StatelessWidget {
-  final Color color;
-  final void Function() reset;
-  final void Function() play;
-  String taskName;
+class TaskCard extends StatefulWidget {
+  TaskCard({super.key, required this.taskName});
+  late final String taskName;
 
-  TaskCard(
-      {required this.taskName,
-      required this.color,
-      required this.play,
-      required this.reset});
+  @override
+  State<TaskCard> createState() => _TaskCardState(taskName);
+}
+
+class _TaskCardState extends State<TaskCard> {
+  final stopwatch = Stopwatch();
+  late final String taskName;
+  _TaskCardState(String str) {
+    this.taskName = str;
+  }
+  Icon running = Icon(
+    Icons.pause,
+    color: primary_color_dark,
+    size: 30,
+  );
+  Icon paused = Icon(
+    Icons.play_arrow,
+    color: Colors.green,
+    size: 30,
+  );
+  Icon used = Icon(
+    Icons.play_arrow,
+    color: Colors.green,
+    size: 30,
+  );
+  Icon reset = Icon(
+    Icons.refresh,
+    color: Colors.red,
+    size: 30,
+  );
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // this is a class
       alignment: Alignment.center,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(30)),
+      decoration: BoxDecoration(
+          color: complementary_color_dark,
+          borderRadius: BorderRadius.circular(30)),
       child: Column(
         children: [
           Expanded(
@@ -30,22 +55,44 @@ class TaskCard extends StatelessWidget {
                 children: [
                   const Padding(
                     padding: const EdgeInsets.only(top: 6),
-                    child: Text("taskName"),
+                    child: Text(
+                        ""), /////////////////////////////////////////////////////////////////////////////////////////////////////
                   ),
-                  Text("00:00:00 "),
+                  Text(stopwatch.elapsed
+                      .toString()), ////////////////////////////////////////////////////////////////////////
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton(
-                        onPressed: play,
-                        icon: Icon(Icons.play_arrow),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primary_color_dark),
+                          onPressed: () {
+                            setState(() {
+                              if (stopwatch.isRunning) {
+                                stopwatch.stop();
+                                used = paused;
+                              } else {
+                                stopwatch.start();
+                                used = running;
+                              }
+                            });
+                          },
+                          child: used),
+                      SizedBox(
+                        width: 10,
                       ),
-                      IconButton(
-                        onPressed: reset,
-                        icon: Icon(Icons.restart_alt),
-                      )
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primary_color_dark),
+                          onPressed: () {
+                            setState(() {
+                              stopwatch.reset();
+                            });
+                            ///// push value to database //////////////////////////////////////////////////////////////////////////////
+                          },
+                          child: reset),
                     ],
                   )
                 ],

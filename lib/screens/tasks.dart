@@ -101,11 +101,8 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                       itemCount: myProducts.length,
                       itemBuilder: (BuildContext ctx, index) {
                         return TaskCard(
-                          color: complementary_color_dark,
-                          reset: () {},
-                          play: () {},
-                          taskName: '',
-                        );
+                          taskName: "task name",
+                        ); ///////////////////////////////////////////////////////////////////////////
                       }),
                 ),
               ),
@@ -148,7 +145,7 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                             ),
                             onClick: () {
                               Navigator.pushNamed(context,
-                                  CreateTask.id); // requier another screen
+                                  createtasks.id); // requier another screen
                             },
                           ),
                         ),
@@ -194,7 +191,7 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                             ),
                             onClick: () {
                               Navigator.pushNamed(context,
-                                  DeleteTask.id); // requier another screen
+                                  deletetask.id); // requier another screen
                             },
                           ),
                         ),
