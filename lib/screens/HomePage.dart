@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:project_app/screens/tasks.dart';
 import 'package:project_app/materials/colors.dart';
 import 'package:project_app/screens/Report.dart';
+import 'package:project_app/screens/AboutUs.dart';
 
-class page1 extends StatefulWidget {
-  const page1({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
   static const String id = "page1";
   @override
-  State<page1> createState() => _page1State();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _page1State extends State<page1> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,7 +53,7 @@ class _page1State extends State<page1> {
                     ),
                     MaterialButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, tasks.id);
+                        Navigator.pushNamed(context, links.id);
                       },
                       color: complementary_color_dark,
                       child: Text("About Us"),

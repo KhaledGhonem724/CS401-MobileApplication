@@ -21,7 +21,7 @@ class _Report_ReportState extends State<Report> {
         title: Center(child: Text('Report')),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, page1.id);
+            Navigator.pushNamed(context, HomePage.id);
           },
           icon: Icon(Icons.arrow_back),
         ),
