@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
-class ContactModel {
-  Color color = Colors.grey;
-  String name;
+class ContactModel extends StatefulWidget {
+  late String name;
   bool isSelected = false;
-  ContactModel(this.name, this.isSelected);
+
+  ContactModel({super.key, required this.name});
+  @override
+  State<ContactModel> createState() => _ContactModelState(name, false);
+}
+
+class _ContactModelState extends State<ContactModel> {
+  Color color = Colors.grey;
+  late String name;
+  bool isSelected = false;
+  _ContactModelState(this.name, this.isSelected);
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -14,12 +23,14 @@ class ContactModel {
         ),
         trailing: IconButton(
             onPressed: () {
-              if (color == Colors.green) {
-                color = Colors.grey;
-              } else {
-                color = Colors.green;
-              }
-              isSelected = !isSelected;
+              setState(() {
+                if (color == Colors.green) {
+                  color = Colors.grey;
+                } else {
+                  color = Colors.green;
+                }
+                isSelected = !isSelected;
+              });
             },
             icon: Icon(
               Icons.check_circle_outline,

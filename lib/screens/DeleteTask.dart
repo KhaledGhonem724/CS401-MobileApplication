@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_app/screens/tasks.dart';
 import 'package:project_app/materials/colors.dart';
-import 'dart:developer';
-import 'dart:html';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:project_app/screens/ContactModel.dart';
-import 'package:project_app/screens/tasks.dart';
+import 'package:project_app/materials/elements/ContactModel.dart';
+import 'package:project_app/materials/functionality.dart';
 
 class deletetask extends StatefulWidget {
   const deletetask({super.key});
@@ -18,14 +12,6 @@ class deletetask extends StatefulWidget {
 }
 
 class _deletetaskState extends State<deletetask> {
-  List<String> contacts = [
-    "string 1",
-    "string 2",
-    "string 3",
-    "string 4",
-    "string 5",
-  ];
-  List<ContactModel> selectedContacts = [];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,28 +32,30 @@ class _deletetaskState extends State<deletetask> {
             child: Column(
               children: [
                 Expanded(
-                  child: ListView.builder(
-                      itemCount: contacts.length,
-                      itemBuilder: (BuildContext context, index) {
-                        return ContactModel(contacts[index], true)
-                            .build(context);
-                      }),
+                  child: tasksRepo(),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   child: SizedBox(
                     width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              tasksRepoState().deletetask();
+                            },
+                            child: const Text(
+                                "Delete")), //////////////////////////////////////////////////////////////////////////////
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, tasks.id);
+                            },
+                            child: const Text("Cansel")),
+                      ],
+                    ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {}, child: const Text("Create")),
-                    ElevatedButton(
-                        onPressed: () {}, child: const Text("Cansel")),
-                  ],
                 ),
               ],
             ),

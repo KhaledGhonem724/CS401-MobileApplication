@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_app/materials/functionality.dart';
 import 'package:project_app/screens/tasks.dart';
 import 'package:project_app/materials/colors.dart';
-import 'dart:developer';
-import 'dart:html';
 
 class createtasks extends StatefulWidget {
   const createtasks({super.key});
@@ -12,6 +11,7 @@ class createtasks extends StatefulWidget {
 }
 
 class _createtasksState extends State<createtasks> {
+  late String createdTask = "";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +21,7 @@ class _createtasksState extends State<createtasks> {
       ),
       home: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(200.0),
+          padding: const EdgeInsets.all(100.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -33,21 +33,31 @@ class _createtasksState extends State<createtasks> {
                   ),
                 ),
               ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Task name",
-                  border: const OutlineInputBorder(),
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.clear),
-                  ),
-                ),
+              TextFormField(
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  setState(() {
+                    createdTask = value;
+                  });
+                  return null;
+                },
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(onPressed: () {}, child: const Text("Create")),
-                  ElevatedButton(onPressed: () {}, child: const Text("Cansel")),
+                  ElevatedButton(
+                      onPressed: () {
+                        tasksRepoState().createtask(createdTask);
+                      },
+                      child: const Text("Create")),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, tasks.id);
+                      },
+                      child: const Text("Cansel")),
                 ],
               ),
             ],

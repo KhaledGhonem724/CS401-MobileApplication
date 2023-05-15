@@ -8,9 +8,18 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import '../materials/elements/CircularButton.dart';
 import '../materials/elements/TaskCard.dart';
 
+List<String> Tasks = [
+  "string 1",
+  "string 2",
+  "string 3",
+  "string 4",
+  "string 5",
+];
+
 class tasks extends StatefulWidget {
-  const tasks({super.key});
+  tasks({super.key});
   static const String id = "tasks";
+
   @override
   State<tasks> createState() => _tasksState();
 }
@@ -98,10 +107,10 @@ class _tasksState extends State<tasks> with SingleTickerProviderStateMixin {
                               crossAxisSpacing: 10,
                               mainAxisExtent: 150,
                               childAspectRatio: 4),
-                      itemCount: myProducts.length,
+                      itemCount: Tasks.length,
                       itemBuilder: (BuildContext ctx, index) {
                         return TaskCard(
-                          taskName: "task name",
+                          taskName: Tasks[index],
                         ); ///////////////////////////////////////////////////////////////////////////
                       }),
                 ),

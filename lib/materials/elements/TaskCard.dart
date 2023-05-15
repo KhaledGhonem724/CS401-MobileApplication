@@ -3,38 +3,16 @@ import 'package:project_app/materials/colors.dart';
 
 class TaskCard extends StatefulWidget {
   TaskCard({super.key, required this.taskName});
-  late final String taskName;
+  late String taskName;
 
   @override
-  State<TaskCard> createState() => _TaskCardState(taskName);
+  State<TaskCard> createState() => _TaskCardState(taskName: taskName);
 }
 
 class _TaskCardState extends State<TaskCard> {
   final stopwatch = Stopwatch();
-  late final String taskName;
-  _TaskCardState(String str) {
-    this.taskName = str;
-  }
-  Icon running = Icon(
-    Icons.pause,
-    color: primary_color_dark,
-    size: 30,
-  );
-  Icon paused = Icon(
-    Icons.play_arrow,
-    color: Colors.green,
-    size: 30,
-  );
-  Icon used = Icon(
-    Icons.play_arrow,
-    color: Colors.green,
-    size: 30,
-  );
-  Icon reset = Icon(
-    Icons.refresh,
-    color: Colors.red,
-    size: 30,
-  );
+  late String taskName = "";
+  _TaskCardState({required this.taskName});
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +31,13 @@ class _TaskCardState extends State<TaskCard> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 6),
                     child: Text(
-                        "stopwatch."), /////////////////////////////////////////////////////////////////////////////////////////////////////
+                        taskName), /////////////////////////////////////////////////////////////////////////////////////////////////////
                   ),
-                  Text(stopwatch.elapsed
-                      .toString()), ////////////////////////////////////////////////////////////////////////
+                  Text(stopwatch.elapsed.toString().substring(0,
+                      7)), ////////////////////////////////////////////////////////////////////////
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,7 +45,7 @@ class _TaskCardState extends State<TaskCard> {
                     children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: primary_color_dark),
+                              backgroundColor: complementary_color_dark),
                           onPressed: () {
                             setState(() {
                               if (stopwatch.isRunning) {
@@ -85,7 +63,7 @@ class _TaskCardState extends State<TaskCard> {
                       ),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: primary_color_dark),
+                              backgroundColor: complementary_color_dark),
                           onPressed: () {
                             setState(() {
                               stopwatch.reset();
